@@ -6,26 +6,37 @@
    このファイルを読み込んでからスタイルを書いていこう
    =========================================== */
 
+  #page-title {
+    color: rgb(157, 94, 228);
+    text-align: center;
+    background-color: rgb(226, 211, 240);
+    font-size: 45px;
+  }
+
 /* --- 1. リセットと基本設定 ---
    ヒント: * で全要素の margin/padding を 0 に
           box-sizing: border-box でサイズ計算を楽に */
 
-* {
-  /* ヒント: margin: 0; padding: 0; box-sizing: border-box; */
-}
 
 body {
-  /* ヒント: font-family, background-color: #f3f4f6, color: #333 */
+  font-family: "Helvetica Neue", Arial, "Hiragino Sans",
+               "Noto Sans JP", sans-serif;
+  background-color: #ffffff;
+  color: #333;
 }
 
 /* --- 2. ヘッダー ---
    ヒント: 背景色 #2563eb, 文字色 white, padding, text-align: center */
 
 .header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: rgb(226, 211, 240);
+  color: rgb(157, 94, 228);
 }
 
 .header h1 {
-  /* ヒント: font-size: 24px */
 }
 
 /* --- 3. メインコンテンツ --- */
@@ -35,82 +46,105 @@ body {
            padding: 32px, border-radius: 12px, box-shadow */
 
 .todo-card {
+  
 }
 
 /* --- 5. 入力エリア ---
    ヒント: display: flex で横並び, gap: 8px, margin-bottom: 24px */
 
 .input-area {
+  text-align: center;
+  background-color: white;
+  max-width: 600px;
+  margin: 32px auto;       /* 上下40px、左右は自動で中央配置 */
+  padding: 20px;
+  border-radius: 12px;     /* 角を丸くする */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .todo-input {
-  /* ヒント: flex: 1, padding: 12px 16px, border: 2px solid #d1d5db
-             border-radius: 8px, font-size: 16px */
-}
+  font-size: 25px;
+  flex: 1; 
+  padding: 12px 16px;
+  border: 2px solid #5d8ed6;
+  border-radius: 8px;
+
+            }
 
 .todo-input:focus {
-  /* ヒント: border-color: #2563eb, outline: none */
 }
 
 .todo-button {
-  /* ヒント: padding: 12px 24px, background-color: #2563eb
-             color: white, border: none, border-radius: 8px, cursor: pointer */
-}
+  font-size: 20px;
+  border-radius: 8px;
+  adding: 12px 24px;
+  background-color: #5d8ed6;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer; 
+            }
 
 .todo-button:hover {
-  /* ヒント: background-color: #1d4ed8 */
 }
 
 /* --- 6. TODOリスト --- */
 
 .todo-list {
-  /* ヒント: list-style: none */
+  margin: 0px;
+  background-color: rgb(250, 215, 225);
+  max-width: 600px;
+  padding: 32px;
+  border-radius: 12px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);  /* 影 */
+  margin: 32px auto; 
+
+
 }
 
 .todo-item {
-  /* ヒント: display: flex, align-items: center, justify-content: space-between
-             padding: 12px 16px, margin-bottom: 8px
-             background-color: #f9fafb, border: 1px solid #e5e7eb, border-radius: 8px */
-}
+  color: rgb(209, 81, 81);
+  font-size: 25px;
+  height: 50px;
+  align-items: center;
+            }
 
 .todo-item:hover {
-  /* ヒント: background-color: #eff6ff */
 }
 
 /* --- 7. TODO項目の内容 --- */
 
 .todo-label {
-  /* ヒント: display: flex, align-items: center, gap: 12px, cursor: pointer, flex: 1 */
 }
 
 .todo-checkbox {
-  /* ヒント: width: 20px, height: 20px, cursor: pointer */
 }
 
 .todo-title {
-  /* ヒント: font-size: 16px */
 }
 
 /* --- 8. 完了状態 ---
    ヒント: 完了アイテムの背景を変え、テキストに取り消し線を引く */
 
 .todo-item.done {
-  /* ヒント: background-color: #f0fdf4, border-color: #bbf7d0 */
 }
 
 .todo-item.done .todo-title {
-  /* ヒント: text-decoration: line-through, color: #9ca3af */
 }
 
 /* --- 9. 削除ボタン --- */
 
 .delete-button {
-  /* ヒント: padding: 6px 12px, background-color: transparent
-             color: #9ca3af, border: 1px solid #d1d5db, border-radius: 6px, cursor: pointer */
-}
+  font-size: 16px;
+  border-radius: 8px;
+  adding: 12px 24px;
+  background-color: #e67b7b;
+  color: white;
+  border: none;
+  cursor: pointer; 
+            }
 
 .delete-button:hover {
-  /* ヒント: background-color: #fef2f2, color: #dc2626, border-color: #fca5a5 */
 }
 
 /* --- 10. 空メッセージ ---
@@ -123,8 +157,8 @@ body {
 /* --- 11. ページフッター --- */
 
 .footer {
-  /* ヒント: background-color: #374151, color: #9ca3af
-             text-align: center, padding: 16px, font-size: 14px */
+  color: #505050;
+
 }
 
 /* --- 12. レスポンシブデザイン ---
