@@ -86,6 +86,7 @@ body {
             }
 
 .todo-button:hover {
+  background-color: #3456b4;
 }
 
 /* --- 6. TODOリスト --- */
@@ -114,7 +115,8 @@ body {
 
 /* --- 7. TODO項目の内容 --- */
 
-.todo-label {
+.todo-label:hover {
+  background-color: rgb(255, 255, 255);
 }
 
 .todo-checkbox {
@@ -145,6 +147,7 @@ body {
             }
 
 .delete-button:hover {
+  background-color: #e30d0d;
 }
 
 /* --- 10. 空メッセージ ---
