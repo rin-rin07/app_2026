@@ -36,6 +36,14 @@
 
     <script>
       // ↓↓↓ ここから下に、スライドのコードを書いてください ↓↓↓
+      const todoForm = document.getElementById("todo-form");
+      const todoInput = document.getElementById("todo-input");
+      todoForm.addEventListener("submit", (event) => {
+        event.preventDefault();          // ページリロードを防止
+        const text = todoInput.value;    // 入力欄の値を取得
+        console.log("入力された値:", text);
+        todoInput.value = "";            // 入力欄をクリア
+      });
     </script>
   </body>
 </html>
