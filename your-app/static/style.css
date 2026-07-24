@@ -5,6 +5,11 @@
   box-sizing: border-box; 
 }
 
+main {
+  flex: 1;
+  width: 100%;
+}
+
   #page-title {
     color: rgb(157, 94, 228);
     text-align: center;
@@ -31,7 +36,7 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
   justify-content: space-around;
   align-items: center;
-
+  display: flex;
 }
 
 .header h1 {
@@ -48,6 +53,13 @@ body {
   border-radius: 12px; 
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
   flex: 1; 
+}
+.song-card h2 {
+  color: rgb(157, 94, 228);
+  font-size: 22px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid rgb(226, 211, 240);
+  padding-bottom: 8px;
 }
 
 .error-message {
@@ -76,7 +88,7 @@ body {
 }
 
 .song-input:focus {
-  border-color: #2563eb; 
+  border-color: #b97fe9; 
 }
 
 .song-button {
@@ -93,7 +105,7 @@ body {
 }
 
 .song-button:hover {
-  background-color: #1d4ed8; 
+  background-color: #d3b1f3; 
 }
 
 .song-list {
@@ -113,7 +125,7 @@ body {
 }
 
 .song-item:hover {
-  background-color: #eff6ff; 
+  background-color: #f1e0f8; 
 }
 
 .song-label {
@@ -123,27 +135,11 @@ body {
   flex: 1; 
 }
 
-.song-checkbox {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  accent-color: #2563eb; 
-}
 
 .song-title {
   font-size: 16px;
   line-height: 1.5; 
   word-break: break-word; 
-}
-
-.song-item.done {
-  background-color: #f0fdf4; 
-  border-color: #bbf7d0;
-}
-
-.song-item.done .song-title {
-  text-decoration: line-through; 
-  color: #9ca3af; 
 }
 
 .delete-button {
@@ -188,4 +184,93 @@ body {
   .song-button {
     width: 100%; 
   }
+}
+
+.favorite-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 12px;
+  color: #d1d5db;
+}
+
+.favorite-button.active{
+  color: #fffc5d;
+  -webkit-text-stroke: 1px #333;
+}
+
+.favorite-button:hover {
+  transform: scale(1.2);
+}
+
+.root {
+  --main-color: rgb(157, 94, 228);
+  --sub-color: rgb(226, 211, 240);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgb(226, 211, 240);
+}
+
+.list-header h2 {
+  margin: 0;
+  border: none;
+}
+
+.sort-select {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 6px;
+  border: 1px solid rgb(226, 211, 240);
+  background-color: white;
+}
+.menu {
+  position: relative;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: rgb(157, 94, 228);
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.menu-list {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 30px;
+
+  background-color: white;
+  width: 140px;
+  padding: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+
+  list-style: none;
+}
+
+.menu-list.active {
+  display: block;
+}
+
+.menu-list li {
+  padding: 8px 16px;
+}
+
+.menu-list a {
+  color: #333;
+  text-decoration: none;
+}
+
+.menu-list li:hover {
+  background-color: rgb(245, 238, 252);
 }

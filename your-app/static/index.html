@@ -9,33 +9,59 @@
   <body>
     <header class="header">
       <h1 id="page-title">Doll's Music Box</h1>
-      <nav>menu</nav>
+      <nav class="menu">
+        <button class="menu-button">menu</button>
+        <ul class="menu-list">
+          <li><a href="#" id="home-menu">HOME</a></li>
+          <li><a href="#" id="favorite-menu">FAVORITE</a></li>
+          <li><a href="#" id="about-menu">ABOUT</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <main class="song-card">
+    <main>
       <div id="error-message" class="error-message" style="display: none"></div>
+      <section class="song-card add-card">
+        <h2>Add Songs</h2>
+        <form id="song-form" class="input-area">
+          <input
+            type="text"
+            id="song-input"
+            class="song-input"
+            placeholder="新しい曲名を入力"
+            maxlength="100"
+            autocomplete="off"
+          />
 
-      <form id="song-form" class="input-area">
-        <input
-          type="text"
-          id="song-input"
-          class="song-input"
-          placeholder="新しい曲名を入力"
-          maxlength="100"
-          autocomplete="off"
-        />
-        <input
-        type="text"
-        id="artist-input"
-        class="song-input"
-        placeholder="アーティスト名を入力"
-        maxlength="100"
-        autocomplete="off"
-        />
-        <button type="submit" class="song-button">追加</button>
-      </form>
-
-      <ul id="song-list" class="song-list"></ul>
+          <input
+            type="text"
+            id="artist-input"
+            class="song-input"
+            placeholder="アーティスト名を入力"
+            maxlength="100"
+            autocomplete="off"
+          />
+          <button type="submit" class="song-button">Add</button>
+        </form>
+      </section>
+      
+      <section class="song-card list-card">
+        <div class="list-header">
+          <h2>List of Songs</h2>
+          <select id="sort-select" class="sort-select">
+            <option value="new">追加順</option>
+            <option value="title-jp">曲名順</option>
+            <option value="artist">アーティスト順</option>
+          </select>
+        </div>
+        <ul id="song-list" class="song-list"></ul>
+      </section>
+      <section class="song-card about-card" id="about-section" style="display:none;">
+        <h2>About</h2>
+        <p>
+          Doll's Music Boxは、好きな曲を管理するための音楽ライブラリです。
+        </p>
+      </section>
     </main>
 
     <footer class="footer">
