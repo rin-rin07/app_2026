@@ -124,7 +124,7 @@ function renderSongs(songs) {
     const titleSpan = document.createElement("span");
     titleSpan.className = "song-title";
     titleSpan.textContent = `${song.title} - ${song.artist}`;
-    
+
     label.appendChild(titleSpan);
 
     const favoriteBtn = document.createElement("button");
@@ -138,7 +138,6 @@ function renderSongs(songs) {
     }
     
     favoriteBtn.addEventListener("click", () => {
-      favoriteBtn.classList.toggle("active");
       toggleFavorite(song.id, song.favorite);
     });
 
@@ -147,9 +146,24 @@ function renderSongs(songs) {
     deleteBtn.textContent = "削除";
     deleteBtn.addEventListener("click", () => deleteSong(song.id));
 
+    const playBtn = document.createElement("button");
+    playBtn.className = "play-button";
+    playBtn.textContent = "▶";
+
+    playBtn.addEventListener("click", () => {
+      const youtubeUrl = `https://www.youtube.com/results?search_query=${encodeURIComponent(song.title + " " + song.artist)}`;
+      window.open(youtubeUrl, "_blank");
+    });
+
+    const actionArea = document.createElement("div");
+    actionArea.className = "song-actions";
+
+    actionArea.appendChild(playBtn);
+    actionArea.appendChild(favoriteBtn);
+    actionArea.appendChild(deleteBtn);
+
     li.appendChild(label);
-    li.appendChild(favoriteBtn);
-    li.appendChild(deleteBtn);
+    li.appendChild(actionArea);
 
     list.appendChild(li);
   });
@@ -225,6 +239,16 @@ const menuList = document.querySelector(".menu-list");
 menuButton.addEventListener("click", function() {
   menuList.classList.toggle("active");
 });
+
+document.addEventListener("click", function (e) {
+  if (
+    !menuButton.contains(e.target) &&
+    !menuList.contains(e.target)
+  ) {
+    menuList.classList.remove("active");
+  }
+});
+
 document.querySelectorAll(".menu-list a").forEach((item) => {
   item.addEventListener("click", () => {
     menuList.classList.remove("active");
@@ -244,6 +268,9 @@ favoriteMenu.addEventListener("click", function(e) {
   showSongList();
 
   showFavoritesOnly = true;
+
+  searchInput.value = "";
+
   sortSongs();
 });
 
@@ -253,14 +280,38 @@ homeMenu.addEventListener("click", function(e) {
   showSongList();
 
   showFavoritesOnly = false;
+
+  searchInput.value = "";
+
   sortSongs();
 });
+
 const aboutMenu = document.getElementById("about-menu");
 aboutMenu.addEventListener("click", function(e) {
   e.preventDefault();
 
+  searchInput.value = "";
+
   songArea.style.display = "none";
   aboutArea.style.display = "block";
 });
+
+const searchInput = document.getElementById("search-input");
+
+searchInput.addEventListener("input", function() {
+  const keyword = searchInput.value.toLowerCase();
+
+  let filteredSongs = currentSongs.filter(song =>
+    song.title.toLowerCase().includes(keyword) ||
+    song.artist.toLowerCase().includes(keyword)
+  );
+
+  if (showFavoritesOnly) {
+    filteredSongs = filteredSongs.filter(song => song.favorite);
+  }
+
+  renderSongs(filteredSongs);
+});
+
 
 loadSongs();

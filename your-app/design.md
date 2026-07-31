@@ -9,7 +9,6 @@
 id   
 title(曲名)  
 artist(アーティスト名)  
-genre(ジャンル)  
 favorite(お気に入り)
 
 ## 3.変換表

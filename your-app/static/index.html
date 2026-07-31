@@ -10,7 +10,7 @@
     <header class="header">
       <h1 id="page-title">Doll's Music Box</h1>
       <nav class="menu">
-        <button class="menu-button">menu</button>
+        <button type="button" class="menu-button" aria-label="メニュー">☰</button>
         <ul class="menu-list">
           <li><a href="#" id="home-menu">HOME</a></li>
           <li><a href="#" id="favorite-menu">FAVORITE</a></li>
@@ -20,7 +20,7 @@
     </header>
 
     <main>
-      <div id="error-message" class="error-message" style="display: none"></div>
+      <div id="error-message" class="error-message"></div>
       <section class="song-card add-card">
         <h2>Add Songs</h2>
         <form id="song-form" class="input-area">
@@ -48,15 +48,25 @@
       <section class="song-card list-card">
         <div class="list-header">
           <h2>List of Songs</h2>
+
+          <input
+            type="text"
+            id="search-input"
+            class="search-input"
+            placeholder="曲名・アーティストを検索"
+            autocomplete="off"
+          />
+
           <select id="sort-select" class="sort-select">
             <option value="new">追加順</option>
             <option value="title-jp">曲名順</option>
             <option value="artist">アーティスト順</option>
           </select>
         </div>
+        
         <ul id="song-list" class="song-list"></ul>
       </section>
-      <section class="song-card about-card" id="about-section" style="display:none;">
+      <section class="song-card about-card" id="about-section">
         <h2>About</h2>
         <p>
           Doll's Music Boxは、好きな曲を管理するための音楽ライブラリです。
