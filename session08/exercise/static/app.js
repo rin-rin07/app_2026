@@ -47,8 +47,6 @@ async function addTodo() {
   //   1. title === "" なら showError("TODOのタイトルを入力してください") で return
   //   2. title.length > 100 なら showError("タイトルは100文字以内で入力してください") で return
 
-
-  
   // TODO(実習5): try-catch でエラーハンドリングを追加してください
   const response = await fetch(API_URL, {
     method: "POST",
